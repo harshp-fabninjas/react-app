@@ -1,0 +1,127 @@
+/* Spot for the toasts - top right, just under the navbar */
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 200;                      /* above the cart panel (100) */
+    width: 320px;
+    max-width: calc(100vw - 40px);     /* fits on small phones */
+}
+
+/* One toast box - both sit in the same spot */
+.toast {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 14px 14px 16px;
+    border-left: 4px solid transparent; /* colour set by success / error */
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+    /* Hidden: pushed off the right edge + faded out */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),   /* fast start, soft stop */
+        opacity 0.3s ease,
+        visibility 0.4s;
+}
+
+/* Shown: slide in + fade in */
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Left icon */
+.toast-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+}
+
+/* Middle text - takes the free space */
+.toast-content {
+    flex-grow: 1;
+}
+
+.toast-title {
+    margin: 0 0 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.toast-text {
+    margin: 0;
+    font-size: 13px;
+    color: #555555;
+}
+
+/* Right X button */
+.toast-close {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    color: #888888;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.toast-close:hover {
+    color: #222222;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.toast-close svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* ---------- Success - green ---------- */
+
+.toast.success {
+    background-color: #eef8f1;
+    border-left-color: #1b8a3a;
+}
+
+.toast.success .toast-icon {
+    color: #1b8a3a;
+}
+
+/* ---------- Error - red ---------- */
+
+.toast.error {
+    background-color: #fdecea;
+    border-left-color: #c62828;
+}
+
+.toast.error .toast-icon {
+    color: #c62828;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Phones - toast stretches edge to edge (16px gap each side) */
+@media (max-width: 480px) {
+    .toast-container {
+        top: 70px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        max-width: none;
+    }
+}

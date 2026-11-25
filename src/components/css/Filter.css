@@ -1,0 +1,288 @@
+.filter-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 1440px;                 /* don't stretch on very wide screens */
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Wrapper so the cross button can sit inside the input */
+.search-box {
+    position: relative;
+}
+
+.filter-input {
+    width: 300px;
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: #ff6b35;
+}
+
+/* Cross (clear) button inside the input, on the right */
+.clear-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+    color: #666666;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    color: #ffffff;
+    background-color: #ff6b35;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #ffffff;
+    background-color: #ff6b35;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: #e85a28;
+}
+
+/* ---------- All / Veg / Non-Veg buttons ---------- */
+
+/* Right side group: type buttons + filter icon */
+.filter-right {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Grey box holding the 3 buttons */
+.type-filter {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+}
+
+/* Normal button - icon + text side by side */
+.type-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #555555;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.type-button:hover {
+    color: #ff6b35;
+}
+
+/* Small icon inside each button */
+.type-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* Selected button */
+.type-button.active {
+    color: #ffffff;
+    background-color: #ff6b35;
+}
+
+/* ---------- Filter button + sort dropdown ---------- */
+
+/* Wrapper so the dropdown can sit right below the button */
+.sort-wrapper {
+    position: relative;
+}
+
+/* Square icon-only button */
+.sort-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: #555555;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.sort-button:hover {
+    color: #ff6b35;
+}
+
+/* While the dropdown is open */
+.sort-button.active {
+    color: #ffffff;
+    background-color: #ff6b35;
+}
+
+.sort-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Dropdown box - hidden until it has the "open" class */
+.sort-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);             /* 8px below the button */
+    right: 0;                          /* line up with the button's right edge */
+    z-index: 10;
+    display: none;
+    min-width: 200px;
+    padding: 12px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.sort-dropdown.open {
+    display: block;
+}
+
+/* Top row of the dropdown: title left, Clear right */
+.sort-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+/* Small orange text button */
+.sort-clear {
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #ff6b35;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sort-clear:hover {
+    background-color: #fff3ee;
+}
+
+.sort-title {
+    margin: 0;
+    padding: 0 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888888;
+    text-transform: uppercase;
+}
+
+/* One radio row - whole row is clickable */
+.sort-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    font-size: 14px;
+    color: #333333;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.sort-option:hover {
+    background-color: #fff3ee;
+}
+
+/* Custom radio circle - grey ring when off */
+.sort-option input {
+    appearance: none;                  /* remove the default black radio */
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 2px solid #bbbbbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Selected - orange ring + orange dot (white gap in between) */
+.sort-option input:checked {
+    border-color: #ff6b35;
+    background-color: #ff6b35;
+    box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Laptops / tablets - search left, filters right (no overlap) */
+@media (max-width: 1100px) {
+    .filter-section {
+        justify-content: space-between;
+    }
+
+    .filter-right {
+        position: static;
+    }
+}
+
+/* Tablets portrait / phones - search on top, filters below */
+@media (max-width: 700px) {
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 20px 16px;
+    }
+
+    .filter-input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .filter-right {
+        justify-content: space-between;
+    }
+}
+
+/* Small phones - smaller buttons so all 3 fit */
+@media (max-width: 480px) {
+    .type-button {
+        gap: 5px;
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,117 @@
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.menu-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Image section */
+.food-image {
+    height: 150px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.food-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Veg / Non-Veg label */
+.food-type {
+    align-self: flex-start;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.veg {
+    color: #1b8a3a;
+    background-color: #e3f5e8;
+}
+
+.non-veg {
+    color: #c62828;
+    background-color: #fdecea;
+}
+
+.food-name {
+    margin: 12px 0 8px;
+    font-size: 18px;
+    color: #222222;
+}
+
+.food-description {
+    flex-grow: 1;
+    margin: 0 0 15px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Price and button row */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6b35;
+}
+
+.add-button {
+    padding: 6px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #ffffff;
+    background-color: #ff6b35;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #e85a28;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Phones - a bit smaller cards */
+@media (max-width: 700px) {
+    .menu-card {
+        padding: 14px;
+    }
+
+    .food-image {
+        height: 130px;
+    }
+
+    .food-name {
+        font-size: 16px;
+    }
+
+    .food-description {
+        font-size: 13px;
+    }
+}
+
+/* Small phones - 1 card per row, so a taller image looks better */
+@media (max-width: 480px) {
+    .food-image {
+        height: 180px;
+    }
+}
